@@ -49,8 +49,8 @@ jobs:
       - name: Show DB config
         run: ls -la
 
-      - name: Copy Environment File
-        run: cp .env.actions .env.testing
+      - name: Copy Environment Files
+        run: cp .env.example .env | cp .env.actions .env.testing
 
       - name: Generate Application Key
         run: php artisan key:generate
