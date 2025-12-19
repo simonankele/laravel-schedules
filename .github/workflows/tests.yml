@@ -37,6 +37,10 @@ jobs:
       - name: Create SQLite Database
         run: touch database/testing.sqlite
 
+      - name: Show DB config
+        run: |
+          grep DB_ .env
+
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
