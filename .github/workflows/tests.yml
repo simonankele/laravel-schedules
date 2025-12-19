@@ -38,8 +38,7 @@ jobs:
         run: touch database/testing.sqlite
 
       - name: Show DB config
-        run: |
-          grep DB_ .env
+        run: ls -la
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
