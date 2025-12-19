@@ -34,14 +34,14 @@ jobs:
       - name: Install Node Dependencies
         run: npm ci
 
+      - name: Install Dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
       - name: Create SQLite Database
         run: touch database/testing.sqlite
 
       - name: Show DB config
         run: ls -la
-
-      - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Copy Environment File
         run: cp .env.example .env
