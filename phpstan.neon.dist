@@ -3,7 +3,7 @@ includes:
     - vendor/nesbot/carbon/extension.neon
 
 parameters:
-    level: 9
+    level: max
     paths:
         - app/
         - bootstrap/
@@ -15,4 +15,5 @@ parameters:
             - app/Http/Controllers/Settings/*
             - app/Http/Requests/Settings/*
             - app/Http/Requests/Auth/*
+            - app/Enums/Concerns/*
 
