@@ -51,8 +51,20 @@ jobs:
           mkdir -p database
           touch database/database.sqlite
 
+      - name: Run migrations
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ${{ github.workspace }}/database/database.sqlite
+          SESSION_DRIVER: array
+          CACHE_STORE: array
+          QUEUE_CONNECTION: sync
+        run: php artisan migrate --force
+
       - name: Run tests
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: ${{ github.workspace }}/database/database.sqlite
-        run: php artisan test --env=testing
+          SESSION_DRIVER: array
+          CACHE_STORE: array
+          QUEUE_CONNECTION: sync
+        run: php artisan test
